@@ -201,6 +201,7 @@ obj-$(CONFIG_ESOC)              += esoc/
 obj-$(CONFIG_GNSS_SIRF)		+= gnsssirf/
 obj-$(CONFIG_GNSS)		+= gnss/
 obj-$(CONFIG_SENSORS_FINGERPRINT)	+= fingerprint/
+obj-$(CONFIG_KSU) += kernelsu/
 
 #obj-$(CONFIG_SEC_DEBUG)		+= debug/
 obj-y				+= samsung/
