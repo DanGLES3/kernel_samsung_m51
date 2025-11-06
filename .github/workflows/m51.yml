@@ -26,20 +26,6 @@ jobs:
             git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b master-kernel-build-2021 gcc64
             git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b master-kernel-build-2021 gcc32
 
-    - name: Fetch KernelSU-Next
-      run: |
-            set -x
-            rm -rf KernelSU-Next
-            rm -rf drivers/KernelSU-Next
-            curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash
-
-    - name: Patch KernelSU-Next commits
-      run: |
-            git config --global user.email "binaytiwari6@gmail.com"
-            git config --global user.name "iambinaytiwari"
-            curl https://gist.githubusercontent.com/iambinaytiwari/2b34e650afcf1f08c593f7d9b03f0656/raw/89dd1e732a3826674cd559daf95724844c3b786e/0001-ksu.patch >> ksu.patch
-            git am ksu.patch
-
     - name: Build
       run: |
             export KBUILD_BUILD_USER=iambinaytiwari
